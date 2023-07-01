@@ -1,0 +1,34 @@
+[alias]
+	# Shortcuts ################################################################
+	a  = add
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	# spp = !git stash && git pull origin master && git stash pop
+
+	# Human readable ###########################################################
+	unstage = reset HEAD --
+	discard = checkout --
+	unwindlastcommit = reset --soft HEAD^ # keeps changes
+	# uncommit = reset --mixed HEAD~
+	# uncommit = reset HEAD~
+	
+	# History ##################################################################
+	
+	# Default look for short git log.
+	le = log --oneline --decorate
+
+	# List commits in short form, with colors and branch/tag annotations.
+	ls = log --pretty=format:"%C(yellow)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate
+
+	# List commits short form, tree.
+	# lst = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --abbrev-commit
+	lst = ls --graph --abbrev-commit
+
+	# List commits showing changed files.
+	ll = ls --decorate --numstat
+	lll = ls --decorate --stat
+
+	# Oneline commits showing dates.
+	# lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=short
