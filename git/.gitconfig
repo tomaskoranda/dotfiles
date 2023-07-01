@@ -1,0 +1,42 @@
+[user]
+	name = Tomas Koranda
+	
+	# Avoid git guesssing defaults for user.email and user.name, 
+	# only retrieves the values from the configuration.
+	# Ideal for having multiple emails, and using different one for different repositories.
+	useConfigOnly = true 
+
+	# Setting `useConfigOnly = true` essentially:
+	# 1. Forbids global credentials (name, email)
+	# 2. Hence, enforcing setting local configs
+	# To avoid setting local config for each repository, we will use conditional imports of local configs (see below).
+	# To check config scope try `git config --list --show-scope`
+
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+
+[core]
+	# Set the default text editor (for commit messages, rebasing, etc.)
+	editor = code --wait
+	# editor = vim
+
+	# Detect and fix some whitespace issues, namely
+	# `blank-at-eol` highlights orphan whitespaces at the line endings
+	# `blank-at-eof` highlights blank lines inserted at the end of a file
+	# `space-before-tab` highlights a space character that appears before a tab character when indenting a line
+	whitespace = blank-at-eol, blank-at-eof, space-before-tab
+
+	# Point to global .gitignore file (applies to all repositories).
+	excludesfile = ~/.gitignore_global
+	
+	# Point to a text file which gives attributes to pathnames (...).
+	# attributesfile = ~/.gitattributes
+	
+[include]
+	path = ~/.gitaliases
+
+[init]
+	defaultBranch = master
