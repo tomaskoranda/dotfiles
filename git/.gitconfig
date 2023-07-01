@@ -75,3 +75,20 @@
 # 	process = git-lfs filter-process
 # 	required = true
 ################################################################################
+# Conditional imports of local configs depending on path (different emails for different repositories)
+
+# University mail
+[includeIf "gitdir:~/Dev/CVUT/*SEMESTER*/"]
+	path = ~/.gitconfig_cvut
+[includeIf "gitdir:~/Dev/CVUT/Teaching/"]
+	path = ~/.gitconfig_cvut
+
+# Personal mail
+[includeIf "gitdir:~/Dev/Personal/"]
+	path = ~/.gitconfig_personal
+[includeIf "gitdir:~/dotfiles/"]
+	path = ~/.gitconfig_personal
+
+# Work/Other mail
+[includeIf "gitdir:~/Dev/Work/"]
+	path = ~/.gitconfig_work
