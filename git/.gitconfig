@@ -40,3 +40,19 @@
 
 [init]
 	defaultBranch = master
+
+################################################################################
+# [commit]
+	# Set default initial message commiting
+	# template = ~/.gitmessage
+
+[pull]
+	# Do not create an extra merge commit when merging a commit that is a descendant of the current commit. 
+	# Instead, the tip of the current branch is fast-forwarded
+	ff = only
+	# rebase = false
+
+[merge]
+	ff = only
+
+################################################################################
