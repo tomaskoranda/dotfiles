@@ -2,3 +2,9 @@
 # General
 .DS_Store
 ### macOS ###
+
+### git ###
+# Local Config files
+git/.gitconfig_*
+!git/.gitconfig_example*
+### git ###
