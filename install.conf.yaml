@@ -79,4 +79,16 @@
     # - command: sudo xcodebuild -license accept
     #   description: Accept Xcode licence agreement
     #   stdin: true
+    
+    # Install Homebrew
+    - command: which -s brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      description: Install Homebrew from https://brew.sh, if not installed.
+    
+    # Add `/opt/homebrew/bin` to PATH temporarily
+    - command: eval "$(/opt/homebrew/bin/brew shellenv)"
+      description: |
+        Adds brew to path and exports some variables in the current shell
+        Check `brew help shellenv` for more info.
+        Note, you will have to add the above line to your .profile.
+
 ################################################################################
