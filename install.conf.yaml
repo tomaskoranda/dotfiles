@@ -43,6 +43,16 @@
       stdout: true  # Show a command's output from stdout
       stderr: true  # Show a command's error output from stderr
 
+    link:
+      # path:  ''    # The source for the symlink
+      create:  true  # Create parent directories to the link as needed
+      force:   false # Force remove/delete the old target (file or folder), before creating a symlink
+      relink:  true  # Remove the old target if it's a symlink
+      glob:    true  # Treat source path as a glob pattern
+      prefix:  ""    # Prepend a prefix to the basename of all globed files, when glob is true
+      exclude: [""]  # Array of glob patterns to remove from glob matches
+      # if:    ''    # Shell command to execute (e.g. '[[ ... = ... ]]'), only link if it is successful
+
 ################################################################################
 # 1. Create Folder Structure
 - create:
