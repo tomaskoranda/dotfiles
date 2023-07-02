@@ -32,3 +32,9 @@
 # - specify directories that should be checked for dead symbolic links, for automatic removal
 
 ################################################################################
+# 0. Set Defaults
+- defaults:
+    create:
+      mode: 0700    # "drwx------"
+    
+#######################################################################################################################
