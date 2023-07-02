@@ -14,3 +14,19 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 
+################################################################################
+# Fonts (are actually casks)                                                   #
+# `brew install --cask <cask_name>`                                            #
+################################################################################
+cask "font-fontawesome"
+cask "font-open-sans"
+cask "font-fira-code"
+cask "font-fira-mono"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-meslo-for-powerline"
+cask "font-powerline-symbols"
+cask "font-roboto-mono"
+cask "font-roboto-mono-for-powerline"
+cask "font-roboto-mono-nerd-font"
+
