@@ -57,3 +57,7 @@ mas "WhatsApp",             id: 1147396723
 # Other 
 mas "iMovie",               id: 408981434
 mas "Xcode",                id: 497799835
+
+# TODO:
+# mas "istat-menus"           id: 1319778037
+# ...
