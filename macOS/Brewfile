@@ -15,6 +15,61 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 ################################################################################
+# Casks (gui apps)                                                             #
+# `brew install --cask`                                                        #
+# Note: some apps might not have checksum => install will fail                 #
+################################################################################
+# Browsers
+cask "brave-browser"
+cask "chromium"
+cask "google-chrome"
+
+# Utilities
+cask "adobe-acrobat-reader"    # PDF reader
+# cask "audacity"              # Audio editor/recorder
+cask "daisydisk"               # Disk space visualizer
+cask "grammarly-desktop"       # Grammar checker
+cask "hammerspoon"             # macOS automation tool (bridge between the OS a Lua scripting engine)
+cask "keycastr"                # Open-source keystroke visualizer
+cask "logitech-options"        # Logitech mouse/keyboard configuration (office series)
+cask "logitech-g-hub"          # Logitech mouse/keyboard configuration (gaming series)
+cask "obs"                     # Screen recorder
+# cask "maccy"                 # Clipboard manager
+cask "screenflick"             # Screen recorder with audio
+cask "vlc"                     # Media player
+
+# Communication/Social/Entertainment
+cask "discord"
+cask "skype"
+cask "steam"
+cask "zoom"
+
+# Programming
+cask "anaconda"                # Python distribution + package manager
+cask "docker"                  # Containerization
+# cask "gitkraken"             # Git GUI
+cask "hyper"                   # Cross platform terminal emulator
+cask "iterm2"                  # macOS terminal emulator
+cask "jetbrains-toolbox"       # JetBrains IDEs manager
+# cask "miniforge"             # Community version of Miniconda (Minimal Anaconda distribution)
+cask "ngrok"                   # Reverse proxy?, Expose localhost to the internet?
+cask "postman"                 # API testing
+# cask "sourcetree"            # Git GUI
+cask "visual-studio-code"      # Text editor
+
+# Quick Look plugins
+cask "qlcolorcode"           # Preview source code files with syntax highlighting
+cask "qlstephen"             # Preview plain text files without or with unknown file extension (README, CHANGELOG, package.json)
+# cask "qlmarkdown"          # Preview Markdown files
+# cask "quicklook-json"      # Preview JSON files
+
+# University/Research/LaTeX
+# cask "mactex"              # macOS LaTeX distribution
+cask "notion"                # Note taking app
+cask "obsidian"              # Markdown note taking app
+cask "zotero"                # Reference manager
+
+################################################################################
 # Fonts (are actually casks)                                                   #
 # `brew install --cask <cask_name>`                                            #
 ################################################################################
