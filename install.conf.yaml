@@ -1,0 +1,34 @@
+# install.conf.yaml
+# documentation: https://github.com/anishathalye/dotbot#configuration
+# gow to run: https://github.com/anishathalye/dotbot#command-line-arguments
+# - `./install --only/except [list of directives]`
+
+# Dotbot can:
+# - link files and folders
+# - create folders
+# - execute shell commands
+# - and clean directories of broken symbolic links
+# - (user plugins for custom commands)
+
+# `Defaults` command
+# - options to apply to all commands that come after setting the defaults
+# - can be set multiple times, each change replaces the defaults with a new set of options
+
+# `Link` command
+# - https://github.com/anishathalye/dotbot#link
+# - specify how files and directories should be symbolically linked
+
+# `Create` command
+# - https://github.com/anishathalye/dotbot#create
+# - specify empty directories to be created
+
+# `Shell` command
+# - https://github.com/anishathalye/dotbot#shell
+# - specify shell commands to be run
+# - commands are run in the base directory (i.e. specified by running the installer)
+
+# `Clean` command
+# - https://github.com/anishathalye/dotbot#clean
+# - specify directories that should be checked for dead symbolic links, for automatic removal
+
+################################################################################
