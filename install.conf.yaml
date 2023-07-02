@@ -43,7 +43,7 @@
       stdout: true  # Show a command's output from stdout
       stderr: true  # Show a command's error output from stderr
 
-#######################################################################################################################
+################################################################################
 # 1. Create Folder Structure
 - create:
     - ~/.ssh
@@ -51,4 +51,32 @@
     - ~/Dev/University
     - ~/Dev/Personal
     - ~/Dev/Work
-#######################################################################################################################
+################################################################################
+# 2. macOS setup
+- shell:
+    # # Example
+    # - command: read var && echo Your variable is $var
+    #   description: Reading and printing variable example
+    #   stdin: true
+
+    # Developer Tools
+    - command: xcode-select --print-path || xcode-select --install
+      description: |
+        Install Xcode Command Line Tools (not Xcode IDE), if not installed already.
+        (Xcode Command Line Tools are essentially BSD cli utilities + macOS SDK)
+
+    # OS update
+    - command: sudo softwareupdate --install --all --verbose
+      description: Update macOS and Safari
+      stdin: true
+
+    # x86 arm translation
+    - command: sudo softwareupdate --install-rosetta --agree-to-license
+      description: Install Roseta2 (x86 to arm translation layer)
+      stdin: true
+
+    # Xcode Licence
+    # - command: sudo xcodebuild -license accept
+    #   description: Accept Xcode licence agreement
+    #   stdin: true
+################################################################################
