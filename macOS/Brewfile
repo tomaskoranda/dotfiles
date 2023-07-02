@@ -30,3 +30,30 @@ cask "font-roboto-mono"
 cask "font-roboto-mono-for-powerline"
 cask "font-roboto-mono-nerd-font"
 
+################################################################################
+# Mac App Store                                                                #
+# `mas install <app_name>`                                                     #
+# Note: you must be signed into the AppStore                                   #
+################################################################################
+
+# Utilities
+mas "Commander One",        id: 1035236694
+mas "LastPass",             id: 926036361
+mas "Magnet",               id: 441258766
+mas "Surfshark",            id: 1437809329
+mas "Toggl Track",          id: 957734279
+
+# Productivity (office tools)
+mas "Microsoft Excel",      id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word",       id: 462054704
+mas "Trello",               id: 1278508951
+
+# Communication/Social
+mas "Messenger",            id: 1480068668
+mas "Slack",                id: 803453959
+mas "WhatsApp",             id: 1147396723
+
+# Other 
+mas "iMovie",               id: 408981434
+mas "Xcode",                id: 497799835
