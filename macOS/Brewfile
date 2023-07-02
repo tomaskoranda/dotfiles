@@ -39,6 +39,7 @@ cask "vlc"                     # Media player
 
 # Communication/Social/Entertainment
 cask "discord"
+cask "microsoft-teams" 
 cask "skype"
 cask "steam"
 cask "zoom"
