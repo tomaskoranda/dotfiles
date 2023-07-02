@@ -89,11 +89,11 @@
     # - command: sudo xcodebuild -license accept
     #   description: Accept Xcode licence agreement
     #   stdin: true
-    
+
     # Install Homebrew
     - command: which -s brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       description: Install Homebrew from https://brew.sh, if not installed.
-    
+
     # Add `/opt/homebrew/bin` to PATH temporarily
     - command: eval "$(/opt/homebrew/bin/brew shellenv)"
       description: |
@@ -101,4 +101,15 @@
         Check `brew help shellenv` for more info.
         Note, you will have to add the above line to your .profile.
 
+################################################################################
+# 4. git
+- link:
+    ~/.gitconfig:
+      force: true
+      path: git/.gitconfig
+    ~/.gitignore_global: git/.gitignore_global
+    ~/.gitaliases: git/.gitaliases
+    ~/:
+      path: git/.gitconfig_*
+      exclude: [git/.gitconfig_example_*]
 ################################################################################
