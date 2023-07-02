@@ -2,3 +2,15 @@
 # Brew Bundle                                                                  #
 # https://github.com/Homebrew/homebrew-bundle                                  #
 ################################################################################
+
+################################################################################
+# Taps (directories of formulae, casks, fonts, ...)                            #
+# `brew tap <tap_name>`                                                        #
+################################################################################
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+
