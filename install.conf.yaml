@@ -37,6 +37,12 @@
     create:
       mode: 0700    # "drwx------"
     
+    shell:
+      quiet:  false # Show only the description but not the command
+      stdin:  false # Allow a command to read from standard input
+      stdout: true  # Show a command's output from stdout
+      stderr: true  # Show a command's error output from stderr
+
 #######################################################################################################################
 # 1. Create Folder Structure
 - create:
