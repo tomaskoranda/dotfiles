@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# iTerm2                                                                       #
+################################################################################
+
+# Minimal Theme
+defaults write com.googlecode.iterm2 TabStyleWithAutomaticOption -int 5
+
+# Quit when all windows closed
+defaults write com.googlecode.iterm2 QuitWhenAllWindowsClosed -bool true
+
+# Quit prompt only when multiple sessions (windows)
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+defaults write com.googlecode.iterm2 OnlyWhenMoreTabs -bool true
