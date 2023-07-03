@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# Language & Region                                                            #
+################################################################################
+echo "${BL}Setting Language & Region defaults${NC}"
+
+# Set language and time/date/... formats (System Preferences → Language & Region)
+
+# Prefered Langugages
+defaults write NSGlobalDomain AppleLanguages -array "en-CZ" "cs-CZ"
+
+# Region and Calendar
+defaults write NSGlobalDomain AppleLocale -string "en_CZ"
+
+# Time format: 24 hour time
+defaults write NSGlobalDomain AppleICUForce12HourTime -bool false
+
+# ...
+defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+# Advanced settings (General, Date, Time)
+# ...
+
+echo "${BL}Setting Language & Region defaults done${NC}\n"
