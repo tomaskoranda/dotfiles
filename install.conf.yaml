@@ -113,3 +113,10 @@
       path: git/.gitconfig_*
       exclude: [git/.gitconfig_example_*]
 ################################################################################
+# 5. Install apps/packages/... via Homebrew
+- link:
+    ~/Brewfile: macOS/Brewfile
+- shell:
+    - command: brew bundle install --file ~/Brewfile
+      description: Install brew bundle, and from a Brewfile install all the applications, packages, fonts, ...
+################################################################################
