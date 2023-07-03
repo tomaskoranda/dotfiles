@@ -14,6 +14,32 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 ################################################################################
+# Formulae (cli apps)                                                          #
+# `brew install <formula_name>`                                                #
+################################################################################
+
+# GNU utilities (macOS uses BSD utilities by default)
+# beware replacing them with GNU utilities may break stuff
+# brew "coreutils"               # GNU core utilities
+
+# GNU utilities but better (rust/go) and other utilities
+brew "atuin"                   # (history)
+brew "bat"                     # (cat)
+brew "ccat"                    # (cat)
+brew "bottom"                  # (gtop, htop, ...)
+brew "broot"                   # (tree, ...)
+brew "dust"                    # (du)
+brew "exa"                     # (ls)
+brew "fd"                      # (find)
+brew "fzf"                     # (find)
+brew "peco"                    # (find, ...)
+brew "procs"                   # (ps)
+brew "ripgrep"                 # (grep)
+brew "rm-improved"             # (rm)
+brew "sd"                      # (sed)
+brew "zoxide"                  # (cd)
+
+################################################################################
 # Casks (gui apps)                                                             #
 # `brew install --cask`                                                        #
 # Note: some apps might not have checksum => install will fail                 #
