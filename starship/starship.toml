@@ -1,0 +1,276 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+################################################################################
+# Prompt Content                                                               #
+################################################################################
+# Check out https://starship.rs/config/#prompt
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Left side (first line)
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$directory\
+
+$docker_context\
+$package\
+
+$buf\
+$c\
+$cmake\
+$container\
+$dart\
+$golang\
+$java\
+$kotlin\
+$nodejs\
+$perl\
+$php\
+$python\
+$rlang\
+$ruby\
+$rust\
+$scala\
+$swift\
+$vagrant\
+$conda\
+
+$aws\
+$gcloud\
+$openstack\
+$azure\
+
+$memory_usage\
+
+$fill\
+$fill\
+
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+
+
+$line_break\
+
+
+$env_var\
+$custom\
+$sudo\
+$jobs\
+$battery\
+
+$shell\
+$status\
+$character\
+"""
+
+# Right side (second line)
+right_format="""
+$time\
+$cmd_duration \
+"""
+
+################################################################################
+# First line style/format                                                      #
+################################################################################
+
+# Main (# USER at HOST in CWD) #################################################
+
+# 1. Active user's username
+[username]
+style_root="bold red"
+style_user="bold yellow"
+format="# [$user]($style) at "
+show_always=true
+
+# 2. System hostname
+[hostname]
+ssh_only = false
+style="bold dimmed green"
+format="[$ssh_symbol$hostname]($style) in "
+# trim_at="."
+# ...
+
+# How deeply is shell nested.
+# [shlvl]
+# disabled = false
+# format = "$shlvl level(s) down"
+# threshold = 2
+
+# 3. Current working directory
+# TODO: improve for long paths
+[directory]
+truncation_length=4
+truncate_to_repo=false
+
+truncation_symbol=".../"
+style="bold cyan"
+format="[$path]($style)[$read_only]($read_only_style) "
+
+# Allows stacking/adding styles (default repo_root_format doens't allow)
+repo_root_style="underline"
+repo_root_format="[$before_root_path]($style)[$repo_root]($repo_root_style $style)[$path]($style)[$read_only]($read_only_style) "
+# repo_root_format="[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+# when dir count > truncation_length, instead of using truncation_symbol, truncate all dir names 
+# fish_style_pwd_dir_length=4
+
+# Other (after # USER at HOST in CWD ...) ######################################
+
+# docker
+# ... 
+
+# programming languagess
+[c]
+commands=[["gcc", "--version"]]
+
+[python]
+pyenv_version_name=false
+pyenv_prefix="pyenv"
+format='via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format="v${major}.${minor}"
+style="yellow bold"
+symbol="🐍 "
+
+[conda]
+ignore_base=false
+
+# cloud services
+# ... 
+
+# other
+[memory_usage]
+disabled=false
+threshold=90
+symbol=" "
+style="bold dimmed white"
+format="\\[low mem: [${ram}]($style)\\] "
+
+# FILL #########################################################################
+[fill]
+symbol = "."
+style = "dimmed white"
+
+# Git ##########################################################################
+
+[git_branch]
+# Shows the remote tracking branch name, even if it is equal to the local branch name.
+always_show_remote=false
+truncation_length = 80
+
+# variables: branch, remote_name, remote_branch
+format="on [$symbol$branch(:$remote_branch)]($style) "
+style="bold purple"
+
+# Only show the branch name when not in a detached HEAD state.
+only_attached=false
+
+[git_commit]
+commit_hash_length=5
+# format="[\\($hash$tag\\)]($style) "
+# style="bold green"
+only_detached=true
+tag_disabled=false
+
+[git_state]
+# rebase="REBASING"
+# ...
+# style="bold yellow"
+# format='\([$state( $progress_current/$progress_total)]($style)\) '
+disabled=false
+
+[git_metrics]
+# Shows the number of added and deleted lines in the current git repository
+disabled=true
+
+[git_status]
+
+# format='([\[$all_status$ahead_behind\]]($style) )'
+# style="bold red"
+
+# variables ahead_count, behind_count can be used for diverged 
+# variable count can be used for conflicted, ahead, behind, untracked, stashed, modified, staged, renamed and deleted 
+conflicted	="=${count}"
+ahead	    ="⇡${count}" #
+behind	    ="⇣${count}" #
+diverged	="⇕⇡${ahead_count}⇣${behind_count}" # TODO: nest variables ahead/behind? #
+up_to_date	="" # TODO
+untracked	="?${count}" #
+stashed	    ="*${count}" #
+modified	="!${count}" #
+staged	    ="+${count}" #
+renamed	    ="»${count}" #
+deleted	    ="✘${count}" #
+# all_status   ~ $conflicted$stashed$deleted$renamed$modified$staged$untracked
+# ahead_behind ~ diverged, ahead, behind or up_to_date format based on the current status of the repo.
+
+# FIXME: Spacing bewteen 
+format="""(\\[\
+    ([ $ahead_behind](bold green))\
+    ([ $stashed](bold green))\
+    ([ $staged](bold yellow))\ 
+    ( [$modified](bold #d8ae00)[$deleted](bold red)[$renamed](bold cyan))\ 
+    ([ $untracked](bold blue))\
+\u0020\\] )"""
+
+################################################################################
+# Second line style/format                                                     #
+################################################################################
+
+# Line Break ###################################################################
+[line_break]
+disabled = false
+
+# Command prompt symbol/carrat #################################################
+[status]
+disabled=false
+format="[$status]($style) "
+style="bold red"
+symbol=""
+success_symbol=""
+map_symbol=false # map exit codes to symbols
+recognize_signal_code=true
+pipestatus_separator="| "
+pipestatus=true
+pipestatus_format="\\[ $pipestatus\\] "
+
+[shell]
+disabled=false
+bash_indicator="💲"
+fish_indicator="🐟"
+zsh_indicator="🚀"
+
+[character]
+format="$symbol "
+success_symbol="[❯](bold green)"
+error_symbol="[❯](bold red)"
+
+# TODO: Custom commands
+# https://starship.rs/config/#custom-commands
+# https://github.com/starship/starship/discussions/1252
+# [custom]
+# ...
+
+# Time #########################################################################
+[time]
+disabled=false
+style="dimmed white"
+format="at [$time]($style) "
+use_12hr=false
+time_format = "%T" # https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html
+utc_time_offset="local"
+time_range="-" # Sets the time range during which the module will be shown. Times must be specified in 24-hours format
+
+[cmd_duration]
+min_time=2_500
+show_milliseconds=false
+format="took [$duration]($style) "
+style="dimmed white"
+show_notifications=true
+min_time_to_notify=30_000

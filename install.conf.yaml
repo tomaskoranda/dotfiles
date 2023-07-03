@@ -131,3 +131,8 @@
     - command: zsh ~/.config/macos/duti.sh
       description: Set default applications for files by type.
 ################################################################################
+# 7. Shell
+- link:
+    # starship
+    ~/.config/starship.toml: starship/starship.toml
+################################################################################
