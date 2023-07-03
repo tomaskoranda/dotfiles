@@ -1,0 +1,203 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# Dock & Menu Bar (and Spaces)                                                 #
+################################################################################
+echo "${BL}Dock & Menu Bar (and Spaces) defaults${NC}"
+
+# Dock Size, Position, ... #####################################################
+
+# Automatically hide and show the Dock (toggle on/off: alt+cmd+d)
+defaults write com.apple.dock autohide -bool false
+
+# Dock items icon size
+defaults write com.apple.dock tilesize -int 75
+
+# Dock items magnification
+defaults write com.apple.dock magnification -bool true
+
+# Dock items magnification size/scale
+defaults write com.apple.dock largesize -int 80;
+
+# Dock orientation (position on screen)
+defaults write com.apple.dock orientation -string "left"
+
+# Dock Animations ##############################################################
+
+# Minimize/Maximize window effect ["scale", "genie"]
+defaults write com.apple.dock mineffect -string "scale"
+
+# Animate opening applications from the Dock
+defaults write com.apple.dock launchanim -bool false
+
+# Animation speed (defaults to 1.0)
+defaults write com.apple.dock autohide-time-modifier -float 0.25
+
+# Hide Dock delay (option+cmd+D)
+defaults write com.apple.Dock autohide-delay -float 0.25
+
+# Dock Info, Indicators, ... ###################################################
+
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Translucent Dock icons of hidden applications
+# cmd-w: close window, cmd-q: quit app, cmd-m: minimize window, cmd-h: hide all windows
+defaults write com.apple.dock showhidden -bool true
+
+# Minimise windows into application icons
+defaults write com.apple.dock minimize-to-application -bool true
+
+
+# Dock Items and Spacers #######################################################
+
+# Clear all persistent-apps from dock (except Finder which is not removable)
+defaults write com.apple.dock persistent-apps -array
+
+# Define apps/spacers to add
+apps=({\
+"/System/Applications/Launchpad",\
+"/System/Applications/Messages",\
+"/System/Applications/FaceTime",\
+"",\
+"/System/Applications/Calendar",\
+"/System/Applications/Reminders",\
+"/System/Applications/Notes",\
+"",\
+"/Applications/Google Chrome",\
+"/Applications/Slack",\
+"",\
+"/Applications/Visual Studio Code",\
+"/Applications/Iterm",\
+"/System/Applications/Utilities/Activity Monitor",\
+"/System/Applications/System Settings",\
+""\
+}.app)
+
+# Generates a Dock item dict, repalces %s with the given application name 
+function print_dock_item_dict() {
+    printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>', "$1"
+}
+
+# Add apps/spacers to the Dock
+for dockItem in ${apps[@]}; do
+    if test ! $dockItem = ".app"
+        then
+        defaults write com.apple.dock persistent-apps -array-add "$(print_dock_item_dict "$dockItem")"
+        else
+        defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+    fi
+done
+
+# Add a spacer to the right side of the Dock (where the Trash is)
+# defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
+# Hide automatically all other apps except the current active one
+defaults write com.apple.dock single-app -bool false
+
+# Show only active apps in Dock
+defaults write com.apple.dock static-only -bool false
+
+# Menu Bar #####################################################################
+
+# Menu Bar items
+defaults write com.apple.controlcenter "NSStatusItem Visible AirDrop" -bool false
+defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible BentoBox" -bool false # Spotlight Icon
+defaults write com.apple.controlcenter "NSStatusItem Visible Clock" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible Display" -bool true
+defaults write com.apple.controlcenter "FocusModes" -bool false
+defaults write com.apple.controlcenter "NSStatusItem Visible NowPlaying" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool false
+defaults write com.apple.controlcenter "NSStatusItem Visible UserSwitcher" -bool false
+defaults write com.apple.controlcenter "NSStatusItem Visible ScreenMirroring" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool true
+
+# TODO: figure out ...; 8, 12, 24 ~ not visible, 2, 6, 18 ~ visible (when active, for items without choice, always)
+defaults -currentHost write com.apple.controlcenter "Battery" -int 18
+defaults -currentHost write com.apple.controlcenter "Bluetooth" -int 6
+defaults -currentHost write com.apple.controlcenter "Display" -int 2
+defaults -currentHost write com.apple.controlcenter "NowPlaying" -int 2
+defaults -currentHost write com.apple.controlcenter "ScreenMirroring" -int 18
+defaults -currentHost write com.apple.controlcenter "WiFi" -int 6
+
+# TODO: 
+# defaults write com.apple.controlcenter "NSStatusItem Visible Item-0" -bool true
+
+# TODO: rearange menu bar items
+# defaults write com.apple.controlcenter "NSStatusItem Preferred Position WiFi" -float 500
+# defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -float 400
+
+# Battery options
+defaults write com.apple.controlcenter BatteryShowPercentage -bool true
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
+
+# Clock options
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MM  HH:mm:ss"
+defaults write com.apple.menuextra.clock Show24Hour -bool true
+defaults write com.apple.menuextra.clock ShowDate -int 1
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
+defaults write com.apple.menuextra.clock ShowSeconds -bool true
+defaults write com.apple.menuextra.clock IsAnalog -bool false
+
+
+# Spaces #######################################################################
+
+# Rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# When Switching to an application, switch to a Space with open windows for the application
+defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool true
+
+# Group windows by application (in the Mission Control / Expose)
+defaults write com.apple.dock expose-group-apps -bool true
+
+# Displays have separate spaces (false=yes, true=no)
+defaults write com.apple.spaces spans-displays -bool false
+
+################################################################################
+# Hot corners (System Preferences → Mission Control / Desktop & Menu Bar → Hot corners)
+
+# wvous-*-corner actions/values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# 13: Lock Screen
+
+# vwous-*-modifier (combinations of modifier keys which need to be pressed
+# to trigger the hot corner) bit mask values:
+# 0: no-modifier
+# 0: no modifier key
+# 2^17 = 131072: Shift
+# 2^18 = 262144: Control
+# 2^19 = 524288: Option
+# 2^20 = 1048576: Command
+
+# Lock Screen (top left hot corner + cmd)
+defaults write com.apple.dock wvous-tl-corner -int 13
+defaults write com.apple.dock wvous-tl-modifier -int 1048576
+
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+# Start screen saver (bottom left hot corner + cmd)
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 1048576
+
+defaults write com.apple.dock wvous-br-corner -int 0
+defaults write com.apple.dock wvous-br-modifier -int 0
+
+################################################################################
+
+echo "${BL}Dock & Menu Bar (and Spaces) defaults done${NC}\n"
