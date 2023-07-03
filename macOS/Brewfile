@@ -59,7 +59,7 @@ brew "tmux"                    # Terminal multiplexer.
 brew "cowsay"                  # Configurable talking characters in ASCII art.
 brew "fortune"                 # Infamous electronic fortune-cookie generator.
 brew "neofetch"                # Fast, highly customisable system info script.
-brew "archey"                  # Graphical system information display for macOS.
+# brew "archey"                # Graphical system information display for macOS.
 
 # Programming/Development
 brew "boost"                   # Collection of portable C++ source libraries.
@@ -80,6 +80,7 @@ brew "perl"                    # Highly capable, feature-rich programming langua
 brew "sqlite"                  # Command-line interface for SQLite.
 brew "ruby"                    # Powerful, clean, object-oriented scripting language.
 brew "rust"                    # Safe, concurrent, practical language.
+brew "scala@3"                 # Scala programming language.
 brew "yarn"                    # JavaScript package manager.
 
 # Version Control
@@ -117,7 +118,7 @@ brew "youtube-dl"              # Download YouTube videos from the command-line.
 
 # LaTeX, Markdown, etc.
 brew "asciidoctor"
-brew "latex-indent"            # Indent LaTeX files for readability.
+brew "latexindent"             # Indent LaTeX files for readability.
 brew "pandoc"                  # Swiss-army knife of markup format conversion.
 
 ################################################################################
