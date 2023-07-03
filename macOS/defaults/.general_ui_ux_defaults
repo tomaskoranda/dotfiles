@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# General UI/UX                                                                #
+################################################################################
+echo "${BL}Setting General UI/UX defaults${NC}"
+
+# Default web browser
+# defaults read com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers
+# TODO: reaplace "com.apple.safari" with "com.google.chrome" at multiple places ... (http, https, html, ...)
+
+echo -e "${PR}Manually set Default web browser${NC}"
+
+# Show scrollbars <"WhenScrolling" | "Automatic" | "Always">
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# Ask to keep changes when closing documents
+defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
+
+# Allow Handoff (continuity)
+# plutil -convert xml1 /Users/korantom/Library/Preferences/ByHost/com.apple.coreservices.useractivityd_<id> -0 useractivityd.plist
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool true
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool true
+
+echo "${BL}Setting General UI/UX defaults done${NC}\n"
