@@ -120,3 +120,11 @@
     - command: brew bundle install --file ~/Brewfile
       description: Install brew bundle, and from a Brewfile install all the applications, packages, fonts, ...
 ################################################################################
+# 6. macOS system settings
+- link:
+    ~/.config/macos/.defaults: macos/.defaults
+    ~/.config/macos/defaults: macos/defaults
+- shell:
+    - command: zsh ~/.config/macos/.defaults
+      description: Set most of macOS system settings, (handle the rest manually)
+################################################################################
