@@ -39,6 +39,28 @@ brew "rm-improved"             # (rm)
 brew "sd"                      # (sed)
 brew "zoxide"                  # (cd)
 
+# Shells
+brew "fish"                    # User-friendly command-line shell.
+brew "fisher"                  # Plugin manager for fish, inspired by antigen.
+brew "zsh"                     # UNIX shell.
+brew "antigen"                 # Plugin manager for zsh, inspired by oh-my-zsh and vundle.
+brew "starship"                # Cross-Shell Prompt.
+
+# CLI tools
+brew "asciinema"               # Record and share terminal sessions.
+brew "thefuck"                 # Programmatically correct mistyped console commands.
+brew "tldr"                    # Simplified and community-driven man pages.
+brew "tree"                    # Display directories as trees (with optional color/HTML output).
+brew "vim"                     # Improved Vi.
+brew "neovim"                  # Improved Vim.
+brew "tmux"                    # Terminal multiplexer.
+
+# CLI fun
+brew "cowsay"                  # Configurable talking characters in ASCII art.
+brew "fortune"                 # Infamous electronic fortune-cookie generator.
+brew "neofetch"                # Fast, highly customisable system info script.
+brew "archey"                  # Graphical system information display for macOS.
+
 ################################################################################
 # Casks (gui apps)                                                             #
 # `brew install --cask`                                                        #
