@@ -61,6 +61,65 @@ brew "fortune"                 # Infamous electronic fortune-cookie generator.
 brew "neofetch"                # Fast, highly customisable system info script.
 brew "archey"                  # Graphical system information display for macOS.
 
+# Programming/Development
+brew "boost"                   # Collection of portable C++ source libraries.
+brew "ccache"                  # Object-file caching compiler wrapper.
+brew "clang-format"            # Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript.
+brew "cmake"                   # Cross-platform make.
+brew "gcc"                     # GNU compiler collection.
+brew "gdb"                     # GNU debugger.
+brew "go"                      # Open source programming language to build simple/reliable/efficient software.
+brew "ipython"                 # Interactive computing in Python.
+brew "node"                    # Platform built on V8 to build network applications.
+brew "open-mpi"                # High performance message passing library.
+brew "openjdk"                 # Development kit for the Java programming language.
+brew "python@3.9"              # Interpreted, interactive, object-oriented programming language.
+brew "python@3.10"
+brew "python@3.11"
+brew "perl"                    # Highly capable, feature-rich programming language.
+brew "sqlite"                  # Command-line interface for SQLite.
+brew "ruby"                    # Powerful, clean, object-oriented scripting language.
+brew "rust"                    # Safe, concurrent, practical language.
+brew "yarn"                    # JavaScript package manager.
+
+# Version Control
+brew "git"                     # Distributed revision control system.
+brew "git-lfs"                 # Git extension for versioning large files.
+brew "commitizen"              # Defines a standard way of committing rules and communicating it.
+brew "tig"                     # Text interface for Git repositories.
+brew "pre-commit"              # Framework for managing and maintaining multi-language pre-commit hooks.
+# brew "cookiecutter"          # Utility that creates projects from templates.
+# brew "ghq"                   # Remote repository management made easy.
+# brew "svn"                   # Subversion, a version control system.
+
+# # Hardware, Embedded, IoT
+# brew "dtc"                   # Device tree compiler.
+# brew "minicom"               # Menu-driven communications program.
+# brew "ninja"                 # Small build system for use with gyp or CMake.
+# brew "qemu"                  # x86 and PowerPC Emulator.
+
+# Other
+brew "curl"                    # Get a file from an HTTP, HTTPS or FTP server.
+brew "ffmpeg"                  # Play, record, convert, and stream audio and video.
+brew "gnutls"                  # GNU Transport Layer Security (TLS) Library.
+brew "htop"                    # Improved top (interactive process viewer).
+# brew "imagemagick"           # Tools and libraries to manipulate images in many formats.
+# brew "libmagic"              # Implementation of the file(1) command.
+# brew "magic-wormhole"        # Securely transfers data between computers.
+brew "openssl"                 # Cryptography and SSL/TLS Toolkit.
+brew "pidof"                   # Display the PID number for a given process name.
+brew "putty"                   # Implementation of Telnet and SSH.
+# brew "poppler"               # PDF rendering library (based on the xpdf-3.0 code base).
+# brew "speedtest-cli"         # Command-line interface for https://speedtest.net bandwidth tests.
+brew "tesseract"               # OCR engine.
+brew "wget"                    # Internet file retriever.
+brew "youtube-dl"              # Download YouTube videos from the command-line.
+
+# LaTeX, Markdown, etc.
+brew "asciidoctor"
+brew "latex-indent"            # Indent LaTeX files for readability.
+brew "pandoc"                  # Swiss-army knife of markup format conversion.
+
 ################################################################################
 # Casks (gui apps)                                                             #
 # `brew install --cask`                                                        #
