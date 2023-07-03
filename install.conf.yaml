@@ -124,7 +124,10 @@
 - link:
     ~/.config/macos/.defaults: macos/.defaults
     ~/.config/macos/defaults: macos/defaults
+    ~/.config/macos/duti.sh: macos/duti.sh
 - shell:
     - command: zsh ~/.config/macos/.defaults
       description: Set most of macOS system settings, (handle the rest manually)
+    - command: zsh ~/.config/macos/duti.sh
+      description: Set default applications for files by type.
 ################################################################################
