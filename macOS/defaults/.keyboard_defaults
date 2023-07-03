@@ -1,0 +1,82 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# Keyboard (System Preferences → Keyboard)                                     #
+################################################################################
+echo "${BL}Setting Keyboard defaults${NC}"
+
+# Full keyboard access (System Preferences → Accesibility → Keyboard)
+# Allows the computer to be controlled with a keyboard (instead of using a mouse/trackpad).
+# Use keyboard shortcuts to navigate through all controls and perform actions.
+
+# Tab H:     Help
+# Tab:       Move to the next UI elemen
+# Shift-Tab: Move to the previous UI element
+# Space bar: Select an item / Activate
+# Arrows:    Move between items in a group (files in a folder, items in a sidebar, ...)
+# ...
+# Control-Option-Command-P: Toggle Pass-Through Mode on/off (Temporarily disable FKA)
+# TODO: fix value/command
+# defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+################################################################################
+# Keyboard → Keyboard ##########################################################
+
+# Keyboard repeat rate and delay until repeat
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+
+# Disable showing accented keys on key hold
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set Function key to (0 ~ nothing, 1 ~ switch input sources, ? ~ emoji)
+defaults write com.apple.HIToolbox AppleFnUsageType -int 0
+
+# Keyboard → Text ##############################################################
+
+# Automatic capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Smart dashes ("-"" + "-" → "—") seems same but different character
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Automatic period (double space bar)
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Smart quotes (curved quotes facing different directions, opening/closing)
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Keyboard → Input sources #####################################################
+
+echo -e "${PR} Manually set Keyboard input sources${NC}"
+
+# Adding/Changing/... input source (keyboard layout) not easily changeable in CLI (easy through GUI)
+# Login screen input source (keyboard layout) not easily changeable at all
+
+################################################################################
+
+# defaults write com.apple.HIToolbox AppleEnabledInputSource -array
+# defaults delete com.apple.HIToolbox
+# defaults write com.apple.HIToolbox AppleEnabledInputSource \
+#     '<array><dict><key>InputSourceKind</key><string>Keyboard Layout</string>
+# 			<key>KeyboardLayout ID</key><integer>0</integer>
+# 			<key>KeyboardLayout Name</key><string>U.S.</string>
+#     </dict></array>'
+
+################################################################################
+
+# workaround/fix: https://leons.im/posts/resetting-default-input-method-in-mac-os/
+# defaults read ~/Library/Preferences/com.apple.HIToolbox.plist [AppleEnabledInputSources, AppleSelectedInputSources, AppleInputSourceHistory, AppleCurrentKeyboardLayoutInputSourceID]
+# ... copy user (~/...) file, inplace convert (plutil -convert xml1), edit, convert, copy to system file (/...)
+# chmod 777 to edit, then back to 644
+
+################################################################################
+
+# Stop iTunes from responding to the keyboard media keys
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+
+echo "${BL}Setting Keyboard defaults done${NC}\n"
