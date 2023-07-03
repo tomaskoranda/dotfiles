@@ -1,0 +1,119 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# Set Up                                                                       #
+# inspired by — https://mths.be/macos 										   #
+# documentation?: https://developer.apple.com/documentation/devicemanagement/  #
+################################################################################
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.defaults` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+################################################################################
+# Get relative/absolute path to this script directory
+
+# relative path to this script
+scirptpath="$0"
+# relative path to sthis cript directory
+scriptdir="$(dirname "$0")"
+
+# current working directory
+# workdir="$(pwd)"
+# absolute path
+# scriptdir="$workdir/$scriptdir"
+
+# Add folder to specific settings
+scriptdir="$scriptdir/defaults"
+
+################################################################################
+# Hint1: to check available options start writing:
+# "defaults read com.apple.<dock, finder, ...>." and TAB for all the options 
+# (if unable to read try sudo)
+
+# Hint2: to check reset value "defaults delete com.apple.<dock, finder, ...>."
+
+# Hint3: figure out defaults
+# a. defaults read ... 
+#    save to some file, change setting in GUI, repeat and check for diff
+
+# b. defaults export <Domain Name (com.apple.... | NSGlobalDomain )> <file_path>
+#    plutil -convert xml1 <file_path>
+#    save to some file, change setting, repeat and check for diff
+
+################################################################################
+# Specific Settings by Category                                                #
+################################################################################
+echo "Running defaults.\n"
+
+# Colors
+PR='\033[0;35m'
+BL='\033[1;34m'
+NC='\033[0m'
+
+# General UI/UX
+source "$scriptdir/.general_ui_ux_defaults"
+
+# Desktop
+# TODO: wallpaper, screen saver, ...
+
+# Dock & Menu Bar
+source "$scriptdir/.dock_and_menu_bar_defaults"
+
+# Activity monitor
+source "$scriptdir/.activity_monitor_defaults"
+
+# Trackpad
+source "$scriptdir/.trackpad_defaults"
+
+# Finder
+source "$scriptdir/.finder_defaults"
+
+# FIXME: May Break Spotlight
+# Language & Region
+# source "$scriptdir/.language_and_region_defaults"
+
+# User & Groups, Login Items 
+# TODO: ...
+
+# Keyboard
+source "$scriptdir/.keyboard_defaults"
+
+# Other
+source "$scriptdir/.other_defaults"
+
+# TODO:
+# ...
+
+# iTerm2
+source "$scriptdir/.iterm2_defaults"
+
+################################################################################
+# Kill affected applications                                                   #
+################################################################################
+
+# killall – kill processes by name
+# TODO: kill cfprefsd?
+for app in "Activity Monitor" \
+	"Calendar" \
+	"Dock" \
+	"Finder" \
+	"SystemUIServer"\
+	; 
+	do killall "${app}" &> /dev/null
+done
+
+################################################################################
+# Post Set Up                                                                  #
+################################################################################
+
+sleep 1
+
+echo "Success! Defaults are set."
+echo "Some changes will not take effect until you restart your machine."
