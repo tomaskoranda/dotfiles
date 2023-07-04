@@ -148,4 +148,6 @@
     ~/.zshrc: zsh/.zshrc
     ~/.config/zsh: zsh
 
+    # anaconda
+    ~/.condarc: conda/.condarc
 ################################################################################
