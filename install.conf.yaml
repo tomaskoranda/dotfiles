@@ -158,6 +158,8 @@
 - link:
     # iTerm2 folder (color presets, profile)
     ~/.config/iterm2/: iterm2/**
+    # Hyper
+    ~/.hyper.js: hyper/.hyper.js
 - shell:
     # iTerm2
     - [echo TODO manually load iTerm2 profile]
