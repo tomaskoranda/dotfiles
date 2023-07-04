@@ -154,3 +154,13 @@
     # neofetch
     ~/.config/neofetch/config.conf: neofetch/config.conf
 ################################################################################
+# 8. Terminal
+- link:
+    # iTerm2 folder (color presets, profile)
+    ~/.config/iterm2/: iterm2/**
+- shell:
+    # iTerm2
+    - [echo TODO manually load iTerm2 profile]
+    - [echo TODO manually select color-preset]
+    - [echo TODO manually key mappings to natural-text-edit]
+################################################################################
