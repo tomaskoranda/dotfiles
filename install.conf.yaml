@@ -148,6 +148,9 @@
     ~/.zshrc: zsh/.zshrc
     ~/.config/zsh: zsh
 
+    # fish
+    ~/.config/fish: fish
+
     # anaconda
     ~/.condarc: conda/.condarc
 
