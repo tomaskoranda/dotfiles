@@ -138,4 +138,9 @@
 
     # starship
     ~/.config/starship.toml: starship/starship.toml
+    
+    # bash
+    ~/.bashrc: bash/.bashrc
+    ~/.bash_profile: bash/.bash_profile
+    ~/.config/bash: bash
 ################################################################################
