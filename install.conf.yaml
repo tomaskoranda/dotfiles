@@ -150,4 +150,7 @@
 
     # anaconda
     ~/.condarc: conda/.condarc
+
+    # neofetch
+    ~/.config/neofetch/config.conf: neofetch/config.conf
 ################################################################################
