@@ -143,4 +143,9 @@
     ~/.bashrc: bash/.bashrc
     ~/.bash_profile: bash/.bash_profile
     ~/.config/bash: bash
+
+    # zsh
+    ~/.zshrc: zsh/.zshrc
+    ~/.config/zsh: zsh
+
 ################################################################################

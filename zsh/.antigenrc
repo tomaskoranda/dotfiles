@@ -1,0 +1,23 @@
+# 1. Load the oh-my-zsh (pre-packaged zsh framework)
+antigen use oh-my-zsh
+
+# 2. Bundles from the default repo
+antigen bundle git                                 # 
+antigen bundle colored-man-pages                   #
+antigen bundle colorize                            # 
+antigen bundle command-not-found                   #
+antigen bundle macos                               #
+antigen bundle pip                                 #
+
+# 3. Load bundles from external repos
+antigen bundle marlonrichert/zsh-autocomplete@main # Autocomplete
+antigen bundle zsh-users/zsh-autosuggestions       # Command suggestion (whisper)
+antigen bundle zsh-users/zsh-completions           # Additional completion definitions
+antigen bundle zsh-users/zsh-syntax-highlighting   # Syntax highlighting for commands as you type them
+antigen bundle esc/conda-zsh-completion            # Conda completion
+
+# 4. Load the theme
+# antigen theme robbyrussell
+
+# 5. Tell Antigen that you're done.
+antigen apply
