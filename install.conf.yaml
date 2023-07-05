@@ -53,6 +53,11 @@
       exclude: [""]  # Array of glob patterns to remove from glob matches
       # if:    ''    # Shell command to execute (e.g. '[[ ... = ... ]]'), only link if it is successful
 
+# 0. Clean
+- clean:
+    ~/:
+      force: false     # Remove dead links even if they don't point to a file inside the dotfiles directory
+      recursive: false # Traverse the directory recursively looking for dead links
 ################################################################################
 # 1. Create Folder Structure
 - create:
