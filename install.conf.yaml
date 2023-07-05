@@ -166,6 +166,10 @@
 
     - command: grep --fixed-strings "$(which bash)" /etc/shells || echo "$(which bash)" | sudo tee -a /etc/shells
       description: Add bash to /etc/shells if not present
+
+    # download/update fish plugins
+    - command: fish -c "fisher update"
+      description: Install fish plugins
 ################################################################################
 # 8. Terminal
 - link:
