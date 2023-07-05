@@ -188,3 +188,12 @@
     - [echo TODO manually select color-preset]
     - [echo TODO manually key mappings to natural-text-edit]
 ################################################################################
+# 9. Other
+- shell:
+    # Git
+    - [git submodule sync --recursive, Syncing submodules]
+    - [git submodule update --init --recursive, Installing/Updating submodules]
+    - [
+        git config --global --unset-all user.email || echo,
+        Unset user email from global gitconfig,
+      ]
