@@ -18,4 +18,4 @@ bindkey -e                    # Use emacs style line editing in zsh
 # zstyle ':autocomplete:history-search-backward:*' list-lines 256
 
 # Make Tab go straight to the menu and cycle there
-bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+# bindkey '\t' menu-select "$terminfo[kcbt]" menu-select

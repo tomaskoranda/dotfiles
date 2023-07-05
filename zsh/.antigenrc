@@ -10,7 +10,7 @@ antigen bundle macos                               #
 antigen bundle pip                                 #
 
 # 3. Load bundles from external repos
-antigen bundle marlonrichert/zsh-autocomplete@main # Autocomplete
+# antigen bundle marlonrichert/zsh-autocomplete@main # Autocomplete # FIXME: breaks history
 antigen bundle zsh-users/zsh-autosuggestions       # Command suggestion (whisper)
 antigen bundle zsh-users/zsh-completions           # Additional completion definitions
 antigen bundle zsh-users/zsh-syntax-highlighting   # Syntax highlighting for commands as you type them
