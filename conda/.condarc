@@ -1,3 +1,4 @@
-auto_activate_base: false
+auto_activate_base: true
+# TODO: turn of activate base if can make PIP_REQUIRE_VIRTUALENV work with conda
 changeps1: false
 add_pip_as_python_dependency: true
