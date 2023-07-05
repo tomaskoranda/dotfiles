@@ -156,6 +156,16 @@
 
     # neofetch
     ~/.config/neofetch/config.conf: neofetch/config.conf
+- shell:
+    # Add login shells (using brew versions instead of default ones)
+    - command: grep --fixed-strings "$(which fish)" /etc/shells || echo "$(which fish)" | sudo tee -a /etc/shells
+      description: Add fish to /etc/shells if not present
+
+    - command: grep --fixed-strings "$(which zsh)" /etc/shells || echo "$(which zsh)" | sudo tee -a /etc/shells
+      description: Add zsh to /etc/shells if not present
+
+    - command: grep --fixed-strings "$(which bash)" /etc/shells || echo "$(which bash)" | sudo tee -a /etc/shells
+      description: Add bash to /etc/shells if not present
 ################################################################################
 # 8. Terminal
 - link:
