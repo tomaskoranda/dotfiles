@@ -155,6 +155,7 @@ cask "zoom"
 
 # Programming
 cask "anaconda"                # Python distribution + package manager
+cask "dash"                    # Documentation browser
 cask "docker"                  # Containerization
 # cask "gitkraken"             # Git GUI
 cask "hyper"                   # Cross platform terminal emulator
