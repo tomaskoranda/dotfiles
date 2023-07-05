@@ -39,6 +39,7 @@ brew "sd"                      # (sed)
 brew "zoxide"                  # (cd)
 
 # Shells
+brew "bash"                    # Bourne-Again SHell, a UNIX command interpreter.
 brew "fish"                    # User-friendly command-line shell.
 brew "fisher"                  # Plugin manager for fish, inspired by antigen.
 brew "zsh"                     # UNIX shell.
